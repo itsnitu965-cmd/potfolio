@@ -1,675 +1,898 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitu Pandey | Data Analyst & BI Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#0d1117',
-                        cardBg: '#161b22',
-                        cardBorder: '#30363d',
-                        tealAccent: '#58a6ff',
-                        emeraldAccent: '#3fb950',
-                        accentHover: '#1f6feb'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Nitu Pandey | Data & Business Intelligence Analyst</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1f293d;
+            --bg-card-hover: #28354e;
+            
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            
+            --accent-primary: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.25);
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --accent-teal: #10b981;
+            
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(59, 130, 246, 0.4);
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .glow-effect {
-            box-shadow: 0 0 25px -5px rgba(88, 166, 255, 0.15);
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, .font-heading {
+            color: var(--text-heading);
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        .glow-emerald {
-            box-shadow: 0 0 25px -5px rgba(63, 185, 80, 0.15);
-        }
+
         .gradient-text {
-            background: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #10b981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* LAYOUT & CONTAINERS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-heading);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-md);
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-hover);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-full);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            box-shadow: 0 0 8px var(--accent-teal);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* SECTION HEADINGS */
+        .section-header {
+            margin-bottom: 3.5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+        }
+
+        /* CARDS & GLASSMORPHISM */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-heading);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        /* PROJECTS SECTION */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-pill {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 0.6rem;
+            color: #60a5fa;
+        }
+
+        /* TIMELINE & ACHIEVEMENTS */
+        .split-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-1.5rem - 5px);
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border-color);
+            color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding-top: 8rem;
+            }
+            .section {
+                padding: 4rem 0;
+            }
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-tealAccent selection:text-darkBg">
+<body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 w-full bg-[#0d1117]/90 backdrop-blur-md z-50 border-b border-cardBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-tealAccent to-emeraldAccent p-[2px]">
-                    <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center font-bold text-white tracking-wider">
-                        NP
-                    </div>
-                </div>
-                <span class="text-xl font-bold text-white tracking-tight hidden sm:inline">Nitu Pandey</span>
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-badge">NP</div>
+                <span>Nitu Pandey</span>
             </a>
+            
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <a href="#about" class="hover:text-tealAccent transition-colors">About</a>
-                <a href="#skills" class="hover:text-tealAccent transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-tealAccent transition-colors">Projects</a>
-                <a href="#education" class="hover:text-tealAccent transition-colors">Education & Achievements</a>
-                <a href="#contact" class="hover:text-tealAccent transition-colors">Contact</a>
-            </nav>
+            <div class="nav-actions">
+                <!-- LEETCODE BUTTON -->
+                <a href="https://leetcode.com/" target="_blank" class="btn btn-outline" title="LeetCode Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span>LeetCode</span>
+                </a>
 
-            <!-- Nav CTAs -->
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="https://github.com" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-lg bg-cardBg border border-cardBorder hover:border-tealAccent text-white transition-all flex items-center space-x-2">
-                    <i class="fab fa-github text-base"></i>
+                <!-- GITHUB BUTTON -->
+                <a href="https://github.com/itsnitu965-cmd" target="_blank" class="btn btn-outline" title="GitHub Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     <span>GitHub</span>
                 </a>
-                <a href="https://linkedin.com" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-lg bg-tealAccent hover:bg-accentHover text-white transition-all flex items-center space-x-2">
-                    <i class="fab fa-linkedin text-base"></i>
+
+                <!-- LINKEDIN BUTTON -->
+                <a href="https://linkedin.com/" target="_blank" class="btn btn-primary" title="LinkedIn Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     <span>LinkedIn</span>
                 </a>
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-cardBorder px-6 py-6 space-y-4">
-            <a href="#about" class="block text-gray-300 hover:text-tealAccent font-medium py-1">About</a>
-            <a href="#skills" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Skills</a>
-            <a href="#projects" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Projects</a>
-            <a href="#education" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Education & Achievements</a>
-            <a href="#contact" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Contact</a>
-            <div class="pt-4 border-t border-cardBorder flex space-x-4">
-                <a href="https://github.com" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-darkBg border border-cardBorder text-white font-semibold text-sm">GitHub</a>
-                <a href="https://linkedin.com" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-tealAccent text-white font-semibold text-sm">LinkedIn</a>
             </div>
         </div>
     </header>
 
-    <main class="pt-20">
-        <!-- HERO SECTION -->
-        <section id="about" class="min-h-[90vh] flex items-center relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Intro Column -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cardBg border border-cardBorder text-xs text-emeraldAccent font-semibold">
-                        <span class="w-2 h-2 rounded-full bg-emeraldAccent animate-pulse"></span>
-                        <span>Available for Entry-Level Analyst Roles</span>
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                        Hi, I'm <span class="gradient-text">Nitu Pandey</span>
-                    </h1>
-
-                    <p class="text-xl sm:text-2xl font-semibold text-gray-300">
-                        Aspiring Data Analyst & Business Intelligence Specialist
-                    </p>
-
-                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        Analytical B.Tech IT student (Graduating 2027) skilled in SQL querying, Python data handling, and building business visualizations with Power BI, Tableau, and Excel. Passionate about transforming raw transactional metadata into strategic business insights.
-                    </p>
-
-                    <!-- CTAs & Social Links -->
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#projects" class="px-6 py-3 rounded-xl bg-tealAccent hover:bg-accentHover text-white font-semibold text-sm transition-all shadow-lg hover:shadow-tealAccent/20 flex items-center space-x-2">
-                            <span>Explore Projects</span>
-                            <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                        <a href="#contact" class="px-6 py-3 rounded-xl bg-cardBg border border-cardBorder hover:border-tealAccent text-white font-semibold text-sm transition-all flex items-center space-x-2">
-                            <i class="far fa-envelope"></i>
-                            <span>Get in Touch</span>
-                        </a>
-                    </div>
-
-                    <!-- Quick Info Badges -->
-                    <div class="pt-6 border-t border-cardBorder grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-400">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-location-dot text-tealAccent"></i>
-                            <span>Greater Noida, India</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-graduation-cap text-emeraldAccent"></i>
-                            <span>B.Tech IT (2023–2027)</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-database text-tealAccent"></i>
-                            <span>SQL & Python Focused</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Card Graphic Column -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="w-full max-w-md bg-cardBg border border-cardBorder rounded-2xl p-6 glow-effect relative">
-                        <div class="flex items-center justify-between pb-4 mb-6 border-b border-cardBorder">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                            <span class="text-xs font-mono text-gray-400">analytics_dashboard.py</span>
-                        </div>
-
-                        <!-- Code Preview Graphic -->
-                        <div class="space-y-3 font-mono text-xs sm:text-sm">
-                            <p class="text-purple-400"><span class="text-red-400">import</span> pandas <span class="text-red-400">as</span> pd</p>
-                            <p class="text-purple-400"><span class="text-red-400">import</span> matplotlib.pyplot <span class="text-red-400">as</span> plt</p>
-                            <p class="text-gray-500"># Load and clean transaction dataset</p>
-                            <p class="text-white">df = pd.read_csv(<span class="text-emeraldAccent">'sales_data.csv'</span>)</p>
-                            <p class="text-white">clean_df = df.dropna().groupby(<span class="text-emeraldAccent">'category'</span>).sum()</p>
-                            <p class="text-gray-500"># Plot trend analysis</p>
-                            <p class="text-tealAccent">clean_df.plot(kind=<span class="text-emeraldAccent">'bar'</span>, color=<span class="text-emeraldAccent">'#58a6ff'</span>)</p>
-                            <p class="text-emeraldAccent"><span class="text-purple-400">print</span>(<span class="text-white">"Insight: Revenue spiked +34% in Q3"</span>)</p>
-                        </div>
-
-                        <!-- Quick Stat Box -->
-                        <div class="mt-6 p-4 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-between">
-                            <div>
-                                <p class="text-xs text-gray-400">Core Focus</p>
-                                <p class="text-sm font-bold text-white">Business Intelligence</p>
-                            </div>
-                            <span class="px-2.5 py-1 rounded bg-tealAccent/10 text-tealAccent text-xs font-semibold">Active</span>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- HERO SECTION -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>Available for Data & BI Analyst Opportunities</span>
             </div>
-        </section>
+            
+            <h1 class="hero-title">
+                Hi, I'm <span class="gradient-text">Nitu Pandey</span>.<br>
+                Transforming Data into Business Insights.
+            </h1>
+            
+            <p class="hero-description">
+                Analytical and detail-oriented B.Tech Information Technology student (Graduating 2027) skilled in SQL querying, Python analytics, exploratory data analysis, and building business visualizations with Power BI and Tableau.
+            </p>
 
-        <!-- TECHNICAL SKILLS SECTION -->
-        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder bg-cardBg/30">
-            <div class="max-w-7xl mx-auto space-y-12">
-                <div class="text-center space-y-4 max-w-2xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Technical <span class="gradient-text">Skills</span></h2>
-                    <p class="text-gray-400">A comprehensive overview of my technical stack, data visualization tools, and analytical methodologies.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Technical Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+
+            <div class="skills-grid">
+                <!-- SQL & Databases -->
+                <div class="glass-card">
+                    <h3 class="skill-category-title">
+                        <svg width="20" height="20" color="#3b82f6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        SQL & Databases
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Complex JOINs</span>
+                        <span class="skill-tag">GROUP BY</span>
+                        <span class="skill-tag">Subqueries</span>
+                        <span class="skill-tag">Relational Design</span>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Card 1: Data Analysis & EDA -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Data Analysis & EDA</h3>
-                        <p class="text-sm text-gray-400 mb-4">Cleaning, analyzing, and deriving actionable trends from raw datasets.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Data Cleaning</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">EDA</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Trend Analysis</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Data Interpretation</span>
-                        </div>
+                <!-- Data Analysis & EDA -->
+                <div class="glass-card">
+                    <h3 class="skill-category-title">
+                        <svg width="20" height="20" color="#10b981" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        Data Analysis & EDA
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">EDA</span>
+                        <span class="skill-tag">Trend Analysis</span>
+                        <span class="skill-tag">Data Interpretation</span>
+                        <span class="skill-tag">Statistical Analysis</span>
                     </div>
+                </div>
 
-                    <!-- Card 2: SQL & Databases -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">SQL & Databases</h3>
-                        <p class="text-sm text-gray-400 mb-4">Executing complex queries, relational modeling, and data structuring.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">MySQL</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">PostgreSQL</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">JOINS</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">GROUP BY</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Subqueries</span>
-                        </div>
+                <!-- Python Analytics -->
+                <div class="glass-card">
+                    <h3 class="skill-category-title">
+                        <svg width="20" height="20" color="#60a5fa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        Python Analytics
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
                     </div>
+                </div>
 
-                    <!-- Card 3: Python Analytics -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Python Analytics</h3>
-                        <p class="text-sm text-gray-400 mb-4">Programmatic data wrangling, mathematical processing, and plotting.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Pandas</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">NumPy</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Matplotlib</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Spreadsheet & BI Tools -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Spreadsheet & BI Tools</h3>
-                        <p class="text-sm text-gray-400 mb-4">Building interactive business dashboards and financial spreadsheets.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Power BI</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Tableau</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">MS Excel</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">PivotTables</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">VLOOKUP / XLOOKUP</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 5: Developer Tools & Core -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Developer Tools & Academic Core</h3>
-                        <p class="text-sm text-gray-400 mb-4">Version control environments and foundational IT knowledge.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Jupyter Notebook</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Git / GitHub</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">DBMS</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">OOP</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">DSA</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 6: Hardware & IoT -->
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">IoT & Systems</h3>
-                        <p class="text-sm text-gray-400 mb-4">Hardware integration, microcontrollers, and real-time signal validation.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Microcontrollers</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Sensors</span>
-                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Hardware Logic</span>
-                        </div>
+                <!-- Spreadsheets & BI Tools -->
+                <div class="glass-card">
+                    <h3 class="skill-category-title">
+                        <svg width="20" height="20" color="#f59e0b" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        Spreadsheets & BI
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MS Excel</span>
+                        <span class="skill-tag">PivotTables</span>
+                        <span class="skill-tag">VLOOKUP / XLOOKUP</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ACADEMIC PROJECTS SECTION -->
-        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder">
-            <div class="max-w-7xl mx-auto space-y-12">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                    <div class="space-y-4 max-w-2xl">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Academic <span class="gradient-text">Projects</span></h2>
-                        <p class="text-gray-400">Practical applications of data cleaning, statistical modeling, media content analysis, and IoT prototyping.</p>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Portfolio Showcase</span>
+                <h2 class="section-title">Academic & Technical Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="glass-card project-card">
+                    <div>
+                        <h3 class="project-title">E-Commerce Customer Insights & Purchasing Analysis</h3>
+                        <p class="project-desc">
+                            Analyzed customer purchasing patterns and product category performance to uncover key sales trends and revenue drivers. Conducted data cleaning in Python and built visual reports to highlight peak buying periods.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Pandas</span>
+                            <span class="tech-pill">NumPy</span>
+                            <span class="tech-pill">MS Excel</span>
+                            <span class="tech-pill">Matplotlib</span>
+                        </div>
                     </div>
+                    <a href="https://github.com/itsnitu965-cmd" target="_blank" class="project-link">
+                        <span>View Repository</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
 
-                    <!-- Filter Buttons -->
-                    <div class="flex flex-wrap gap-2" id="projectFilters">
-                        <button class="filter-btn active px-4 py-2 rounded-xl bg-tealAccent text-white text-xs font-semibold transition-all" data-filter="all">All</button>
-                        <button class="filter-btn px-4 py-2 rounded-xl bg-cardBg border border-cardBorder text-gray-300 hover:text-white text-xs font-semibold transition-all" data-filter="data">Data Analytics</button>
-                        <button class="filter-btn px-4 py-2 rounded-xl bg-cardBg border border-cardBorder text-gray-300 hover:text-white text-xs font-semibold transition-all" data-filter="iot">IoT / Hardware</button>
+                <!-- Project 2 -->
+                <div class="glass-card project-card">
+                    <div>
+                        <h3 class="project-title">Netflix Content Strategy & Trend Analysis</h3>
+                        <p class="project-desc">
+                            Explored content distribution across genres, ratings, and release dates to evaluate catalog expansion strategies. Cleaned and structured metadata for multi-country media content analysis.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Pandas</span>
+                            <span class="tech-pill">Matplotlib</span>
+                            <span class="tech-pill">Jupyter Notebook</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/itsnitu965-cmd" target="_blank" class="project-link">
+                        <span>View Repository</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card project-card">
+                    <div>
+                        <h3 class="project-title">Smart Door Lock System (IoT Prototype)</h3>
+                        <p class="project-desc">
+                            Engineered a sensor-driven access-control prototype demonstrating automated security validation. Integrated hardware components with logic controllers for reliable real-time signal processing.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-pill">Sensors</span>
+                            <span class="tech-pill">Microcontrollers</span>
+                            <span class="tech-pill">Hardware Integration</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/itsnitu965-cmd" target="_blank" class="project-link">
+                        <span>View Repository</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & ACHIEVEMENTS SECTION -->
+    <section id="education">
+        <div class="container">
+            <div class="split-grid">
+                <!-- Education Timeline -->
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 – 2027</div>
+                            <h3 class="timeline-title">B.Tech in Information Technology</h3>
+                            <p class="timeline-sub">IIMT College of Engineering, Greater Noida</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 – 2023</div>
+                            <h3 class="timeline-title">Intermediate (Class XII)</h3>
+                            <p class="timeline-sub">Nehru College</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 – 2021</div>
+                            <h3 class="timeline-title">Matriculation (Class X)</h3>
+                            <p class="timeline-sub">Sun Beam Public School (CBSE)</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Achievements & Certifications -->
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Certifications & Rank</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="glass-card" style="padding: 1.25rem;">
+                            <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">2nd Rank Holder - College Ideathon</h3>
+                            <p style="color: var(--text-muted); font-size: 0.88rem;">Secured second place in a competitive innovation event for presenting a structured tech solution.</p>
+                        </div>
+                        <div class="glass-card" style="padding: 1.25rem;">
+                            <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Data Analytics Professional Certificate</h3>
+                            <p style="color: var(--text-muted); font-size: 0.88rem;">Completed Coursera coursework focusing on data handling, EDA, and statistical visualization.</p>
+                        </div>
+                        <div class="glass-card" style="padding: 1.25rem;">
+                            <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">IoT Project Development Certificate</h3>
+                            <p style="color: var(--text-muted); font-size: 0.88rem;">Formal certification for hardware prototyping and implementation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 1.5rem;">Contact Information</h3>
                     
-                    <!-- Project 1 -->
-                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-tealAccent/50 transition-all flex flex-col" data-category="data">
-                        <div class="p-6 flex-1 space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="px-3 py-1 rounded-full bg-tealAccent/10 text-tealAccent text-xs font-semibold">Data Analytics</span>
-                                <i class="fas fa-shopping-cart text-gray-500"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white leading-snug">E-Commerce Customer Insights & Purchasing Analysis</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">
-                                Analyzed customer purchasing patterns and product category performance to uncover key sales trends and revenue drivers. Addressed missing values in raw transaction data and created visual summary reports for peak buying periods.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Python</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Pandas</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">NumPy</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">MS Excel</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Matplotlib</span>
-                            </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </div>
-                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
-                            <span class="text-xs text-gray-500">Academic Project</span>
-                            <a href="https://github.com" target="_blank" class="text-xs text-tealAccent hover:underline flex items-center space-x-1 font-medium">
-                                <span>View Repository</span>
-                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Email</div>
+                            <div style="font-weight: 600;">itsnitu965@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Phone</div>
+                            <div style="font-weight: 600;">+91 9771508021</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Location</div>
+                            <div style="font-weight: 600;">Greater Noida, UP, India</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Social Profiles</div>
+                        <div class="social-links">
+                            <!-- LeetCode Icon -->
+                            <a href="https://leetcode.com/" target="_blank" class="social-btn" title="LeetCode">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </a>
+                            <!-- GitHub Icon -->
+                            <a href="https://github.com/itsnitu965-cmd" target="_blank" class="social-btn" title="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </a>
+                            <!-- LinkedIn Icon -->
+                            <a href="https://linkedin.com/" target="_blank" class="social-btn" title="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                             </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Project 2 -->
-                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-tealAccent/50 transition-all flex flex-col" data-category="data">
-                        <div class="p-6 flex-1 space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="px-3 py-1 rounded-full bg-tealAccent/10 text-tealAccent text-xs font-semibold">Data Analytics</span>
-                                <i class="fas fa-film text-gray-500"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white leading-snug">Netflix Content Strategy & Trend Analysis</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">
-                                Explored content distribution across genres, rating categories, and release dates to evaluate catalog expansion strategies. Cleaned regional metadata using Pandas and generated visualizations charting content production growth over time.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Python</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Pandas</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Matplotlib</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Jupyter Notebook</span>
-                            </div>
+                <!-- Contact Form -->
+                <div class="glass-card">
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" name="name" class="form-input" placeholder="e.g. John Doe" required>
                         </div>
-                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
-                            <span class="text-xs text-gray-500">Academic Project</span>
-                            <a href="https://github.com" target="_blank" class="text-xs text-tealAccent hover:underline flex items-center space-x-1 font-medium">
-                                <span>View Repository</span>
-                                <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
+                        <div class="form-group">
+                            <label class="form-label">Your Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="e.g. john@example.com" required>
                         </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-emeraldAccent/50 transition-all flex flex-col" data-category="iot">
-                        <div class="p-6 flex-1 space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="px-3 py-1 rounded-full bg-emeraldAccent/10 text-emeraldAccent text-xs font-semibold">IoT Prototype</span>
-                                <i class="fas fa-lock text-gray-500"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white leading-snug">Smart Door Lock System</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">
-                                Engineered a sensor-driven access-control system prototype to demonstrate automated security validation. Integrated hardware components with logic controllers for reliable real-time signal processing.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Sensors</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Microcontrollers</span>
-                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Hardware Logic</span>
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <input type="text" name="subject" class="form-input" placeholder="Opportunity / Project Query">
                         </div>
-                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
-                            <span class="text-xs text-gray-500">Hardware Prototype</span>
-                            <a href="https://github.com" target="_blank" class="text-xs text-emeraldAccent hover:underline flex items-center space-x-1 font-medium">
-                                <span>View Details</span>
-                                <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea name="message" class="form-textarea" placeholder="Hi Nitu, I would like to connect with you regarding..." required></textarea>
                         </div>
-                    </div>
-
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
                 </div>
             </div>
-        </section>
-
-        <!-- EDUCATION & ACHIEVEMENTS SECTION -->
-        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder bg-cardBg/30">
-            <div class="max-w-7xl mx-auto space-y-16">
-                
-                <!-- Section Header -->
-                <div class="text-center space-y-4 max-w-2xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Education & <span class="gradient-text">Achievements</span></h2>
-                    <p class="text-gray-400">Academic background, competitive hackathon ranks, and industry certifications.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
-                    <!-- Education Timeline Column -->
-                    <div class="lg:col-span-7 space-y-6">
-                        <h3 class="text-2xl font-bold text-white flex items-center space-x-3">
-                            <i class="fas fa-graduation-cap text-tealAccent"></i>
-                            <span>Academic Qualifications</span>
-                        </h3>
-
-                        <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-cardBorder">
-                            
-                            <!-- B.Tech Card -->
-                            <div class="relative pl-10">
-                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-tealAccent -translate-x-1/2"></div>
-                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
-                                    <span class="text-xs text-tealAccent font-semibold">2023 – 2027</span>
-                                    <h4 class="text-lg font-bold text-white">B.Tech in Information Technology</h4>
-                                    <p class="text-sm text-gray-300">IIMT College of Engineering, Greater Noida</p>
-                                    <p class="text-xs text-gray-400 pt-2">Coursework: Database Management Systems (DBMS), OOP, Data Structures & Algorithms, Data Analytics.</p>
-                                </div>
-                            </div>
-
-                            <!-- Class XII Card -->
-                            <div class="relative pl-10">
-                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 -translate-x-1/2"></div>
-                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
-                                    <span class="text-xs text-gray-400 font-semibold">2021 – 2023</span>
-                                    <h4 class="text-lg font-bold text-white">Intermediate (Class XII)</h4>
-                                    <p class="text-sm text-gray-300">Nehru College</p>
-                                </div>
-                            </div>
-
-                            <!-- Class X Card -->
-                            <div class="relative pl-10">
-                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 -translate-x-1/2"></div>
-                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
-                                    <span class="text-xs text-gray-400 font-semibold">2020 – 2021</span>
-                                    <h4 class="text-lg font-bold text-white">Matriculation (Class X)</h4>
-                                    <p class="text-sm text-gray-300">Sun Beam Public School (CBSE)</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Achievements & Certifications Column -->
-                    <div class="lg:col-span-5 space-y-6">
-                        <h3 class="text-2xl font-bold text-white flex items-center space-x-3">
-                            <i class="fas fa-award text-emeraldAccent"></i>
-                            <span>Certifications & Ranks</span>
-                        </h3>
-
-                        <div class="space-y-4">
-                            <!-- Achievement 1 -->
-                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center shrink-0">
-                                    <i class="fas fa-trophy text-lg"></i>
-                                </div>
-                                <div class="space-y-1">
-                                    <h4 class="text-base font-bold text-white">2nd Rank Holder - College Ideathon</h4>
-                                    <p class="text-xs text-gray-400">Secured second place in a competitive innovation event for presenting a structured technology solution.</p>
-                                </div>
-                            </div>
-
-                            <!-- Achievement 2 -->
-                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center shrink-0">
-                                    <i class="fas fa-certificate text-lg"></i>
-                                </div>
-                                <div class="space-y-1">
-                                    <h4 class="text-base font-bold text-white">Data Analytics Professional Certificate</h4>
-                                    <p class="text-xs text-gray-400">Coursera coursework focused on data handling, EDA, and statistical visualization techniques.</p>
-                                </div>
-                            </div>
-
-                            <!-- Achievement 3 -->
-                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center shrink-0">
-                                    <i class="fas fa-microchip text-lg"></i>
-                                </div>
-                                <div class="space-y-1">
-                                    <h4 class="text-base font-bold text-white">IoT Project Development Certificate</h4>
-                                    <p class="text-xs text-gray-400">Formal certification for hardware prototyping and controller integration implementation.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT & FOOTER SECTION -->
-        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder">
-            <div class="max-w-7xl mx-auto space-y-12">
-                <div class="text-center space-y-4 max-w-2xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Get In <span class="gradient-text">Touch</span></h2>
-                    <p class="text-gray-400">Feel free to reach out for internship opportunities, entry-level roles, or data analytics collaborations.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
-                    <!-- Contact Details Column -->
-                    <div class="lg:col-span-5 space-y-6">
-                        <div class="bg-cardBg border border-cardBorder rounded-2xl p-8 space-y-6">
-                            <h3 class="text-xl font-bold text-white">Contact Information</h3>
-
-                            <div class="space-y-4">
-                                <a href="mailto:itsnitu965@gmail.com" class="flex items-center space-x-4 text-gray-300 hover:text-tealAccent transition-colors">
-                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-tealAccent">
-                                        <i class="far fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-gray-500">Email</p>
-                                        <p class="text-sm font-semibold">itsnitu965@gmail.com</p>
-                                    </div>
-                                </a>
-
-                                <a href="tel:+919771508021" class="flex items-center space-x-4 text-gray-300 hover:text-tealAccent transition-colors">
-                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-emeraldAccent">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-gray-500">Phone</p>
-                                        <p class="text-sm font-semibold">+91 9771508021</p>
-                                    </div>
-                                </a>
-
-                                <div class="flex items-center space-x-4 text-gray-300">
-                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-tealAccent">
-                                        <i class="fas fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-gray-500">Location</p>
-                                        <p class="text-sm font-semibold">Greater Noida, Uttar Pradesh, India</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pt-6 border-t border-cardBorder space-y-3">
-                                <p class="text-xs text-gray-400">Social Profiles</p>
-                                <div class="flex space-x-3">
-                                    <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-gray-300 hover:text-white hover:border-tealAccent transition-all">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-gray-300 hover:text-white hover:border-tealAccent transition-all">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Form Column -->
-                    <div class="lg:col-span-7">
-                        <form id="contactForm" class="bg-cardBg border border-cardBorder rounded-2xl p-8 space-y-6">
-                            <h3 class="text-xl font-bold text-white">Send a Message</h3>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label class="text-xs text-gray-400 font-medium">Your Name</label>
-                                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-xs text-gray-400 font-medium">Your Email</label>
-                                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
-                                </div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="text-xs text-gray-400 font-medium">Subject</label>
-                                <input type="text" required placeholder="Opportunity / Project Query" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="text-xs text-gray-400 font-medium">Message</label>
-                                <textarea rows="4" required placeholder="Hi Nitu, I would like to discuss..." class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm resize-none"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-tealAccent hover:bg-accentHover text-white font-semibold text-sm transition-all shadow-lg hover:shadow-tealAccent/20">
-                                Send Message
-                            </button>
-
-                            <!-- Success / Error Message Box -->
-                            <div id="formResponse" class="hidden p-4 rounded-xl text-center text-xs font-semibold"></div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-cardBorder text-center text-xs text-gray-500">
-        <p>&copy; 2026 Nitu Pandey. All rights reserved. Designed for GitHub Pages & Vercel deployment.</p>
+    <footer>
+        <div class="container">
+            <p>© 2026 Nitu Pandey. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
-    <script>
-        // Mobile Drawer Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile drawer when link is clicked
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Project Category Filter Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-tealAccent', 'text-white');
-                    b.classList.add('bg-cardBg', 'text-gray-300');
-                });
-                btn.classList.add('active', 'bg-tealAccent', 'text-white');
-                btn.classList.remove('bg-cardBg', 'text-gray-300');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Form Submit Handler
-        const contactForm = document.getElementById('contactForm');
-        const formResponse = document.getElementById('formResponse');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formResponse.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'bg-emeraldAccent/10', 'text-emeraldAccent');
-            
-            // Display mock success response without alert()
-            formResponse.classList.add('bg-emeraldAccent/10', 'text-emeraldAccent');
-            formResponse.textContent = "Thank you! Your message has been sent successfully.";
-            contactForm.reset();
-
-            setTimeout(() => {
-                formResponse.classList.add('hidden');
-            }, 5000);
-        });
-    </script>
 </body>
 </html>
