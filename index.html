@@ -70,10 +70,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .code-font {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
         /* LAYOUT & CONTAINERS */
         .container {
             max-width: 1200px;
@@ -92,10 +88,9 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 14, 23, 0.8);
+            background: rgba(10, 14, 23, 0.85);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
         }
 
         .nav-container {
@@ -197,7 +192,29 @@
         .hero {
             padding-top: 10rem;
             padding-bottom: 6rem;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-img-wrapper {
             position: relative;
+            width: 260px;
+            height: 260px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent-primary);
+            box-shadow: var(--shadow-glow);
         }
 
         .hero-badge {
@@ -223,16 +240,16 @@
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
             line-height: 1.15;
             margin-bottom: 1.5rem;
         }
 
         .hero-description {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 680px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .hero-btns {
@@ -418,6 +435,21 @@
             font-size: 0.9rem;
         }
 
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+            font-size: 0.82rem;
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
         /* CONTACT SECTION */
         .contact-grid {
             display: grid;
@@ -428,6 +460,13 @@
         @media (max-width: 900px) {
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+            .hero-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-btns {
+                justify-content: center;
             }
         }
 
@@ -520,16 +559,12 @@
             font-size: 0.9rem;
         }
 
-        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             .hero {
                 padding-top: 8rem;
-            }
-            .section {
-                padding: 4rem 0;
             }
         }
     </style>
@@ -577,29 +612,41 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH PHOTO & DOWNLOAD CV -->
     <section class="hero" id="about">
         <div class="container">
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                <span>Available for Data & BI Analyst Opportunities</span>
-            </div>
-            
-            <h1 class="hero-title">
-                Hi, I'm <span class="gradient-text">Nitu Pandey</span>.<br>
-                Transforming Data into Business Insights.
-            </h1>
-            
-            <p class="hero-description">
-                Analytical and detail-oriented B.Tech Information Technology student (Graduating 2027) skilled in SQL querying, Python analytics, exploratory data analysis, and building business visualizations with Power BI and Tableau.
-            </p>
+            <div class="hero-layout">
+                <div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        <span>Available for Data & BI Analyst Opportunities</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Nitu Pandey</span>.<br>
+                        Transforming Data into Business Insights.
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Analytical and detail-oriented B.Tech Information Technology student (Graduating 2027) skilled in SQL querying, Python analytics, exploratory data analysis, and building business visualizations with Power BI and Tableau.
+                    </p>
 
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">
-                    <span>View Projects</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <div class="hero-btns">
+                        <!-- DOWNLOAD CV BUTTON -->
+                        <a href="resume.pdf" target="_blank" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Download CV</span>
+                        </a>
+
+                        <a href="#projects" class="btn btn-outline">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+
+                <!-- PROFILE PHOTO CONTAINER -->
+                <div class="profile-img-wrapper">
+                    <img src="photo.jpg" alt="Nitu Pandey Profile Photo" class="profile-img" onerror="this.src='https://via.placeholder.com/260?text=Nitu+Pandey';">
+                </div>
             </div>
         </div>
     </section>
@@ -748,7 +795,7 @@
         </div>
     </section>
 
-    <!-- EDUCATION & ACHIEVEMENTS SECTION -->
+    <!-- EDUCATION & CERTIFICATIONS WITH VIEW LINKS -->
     <section id="education">
         <div class="container">
             <div class="split-grid">
@@ -774,7 +821,7 @@
                     </div>
                 </div>
 
-                <!-- Achievements & Certifications -->
+                <!-- Certifications & Achievements -->
                 <div>
                     <h2 class="section-title" style="margin-bottom: 2rem;">Certifications & Rank</h2>
                     <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -782,13 +829,25 @@
                             <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">2nd Rank Holder - College Ideathon</h3>
                             <p style="color: var(--text-muted); font-size: 0.88rem;">Secured second place in a competitive innovation event for presenting a structured tech solution.</p>
                         </div>
+
+                        <!-- CERTIFICATE 1 WITH VIEW PDF LINK -->
                         <div class="glass-card" style="padding: 1.25rem;">
                             <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Data Analytics Professional Certificate</h3>
                             <p style="color: var(--text-muted); font-size: 0.88rem;">Completed Coursera coursework focusing on data handling, EDA, and statistical visualization.</p>
+                            <a href="data-analytics-cert.pdf" target="_blank" class="cert-link">
+                                <span>View Certificate</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
                         </div>
+
+                        <!-- CERTIFICATE 2 WITH VIEW PDF LINK -->
                         <div class="glass-card" style="padding: 1.25rem;">
                             <h3 style="font-size: 1.05rem; margin-bottom: 0.25rem;">IoT Project Development Certificate</h3>
                             <p style="color: var(--text-muted); font-size: 0.88rem;">Formal certification for hardware prototyping and implementation.</p>
+                            <a href="iot-cert.pdf" target="_blank" class="cert-link">
+                                <span>View Certificate</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
