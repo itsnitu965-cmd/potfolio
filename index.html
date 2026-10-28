@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitu Pandey | Data Analyst & BI Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0d1117',
+                        cardBg: '#161b22',
+                        cardBorder: '#30363d',
+                        tealAccent: '#58a6ff',
+                        emeraldAccent: '#3fb950',
+                        accentHover: '#1f6feb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(88, 166, 255, 0.15);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 25px -5px rgba(63, 185, 80, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tealAccent selection:text-darkBg">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full bg-[#0d1117]/90 backdrop-blur-md z-50 border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-tealAccent to-emeraldAccent p-[2px]">
+                    <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center font-bold text-white tracking-wider">
+                        NP
+                    </div>
+                </div>
+                <span class="text-xl font-bold text-white tracking-tight hidden sm:inline">Nitu Pandey</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-tealAccent transition-colors">About</a>
+                <a href="#skills" class="hover:text-tealAccent transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-tealAccent transition-colors">Projects</a>
+                <a href="#education" class="hover:text-tealAccent transition-colors">Education & Achievements</a>
+                <a href="#contact" class="hover:text-tealAccent transition-colors">Contact</a>
+            </nav>
+
+            <!-- Nav CTAs -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="https://github.com" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-lg bg-cardBg border border-cardBorder hover:border-tealAccent text-white transition-all flex items-center space-x-2">
+                    <i class="fab fa-github text-base"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-lg bg-tealAccent hover:bg-accentHover text-white transition-all flex items-center space-x-2">
+                    <i class="fab fa-linkedin text-base"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-cardBorder px-6 py-6 space-y-4">
+            <a href="#about" class="block text-gray-300 hover:text-tealAccent font-medium py-1">About</a>
+            <a href="#skills" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Skills</a>
+            <a href="#projects" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Projects</a>
+            <a href="#education" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Education & Achievements</a>
+            <a href="#contact" class="block text-gray-300 hover:text-tealAccent font-medium py-1">Contact</a>
+            <div class="pt-4 border-t border-cardBorder flex space-x-4">
+                <a href="https://github.com" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-darkBg border border-cardBorder text-white font-semibold text-sm">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-tealAccent text-white font-semibold text-sm">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section id="about" class="min-h-[90vh] flex items-center relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Intro Column -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cardBg border border-cardBorder text-xs text-emeraldAccent font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-emeraldAccent animate-pulse"></span>
+                        <span>Available for Entry-Level Analyst Roles</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Hi, I'm <span class="gradient-text">Nitu Pandey</span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl font-semibold text-gray-300">
+                        Aspiring Data Analyst & Business Intelligence Specialist
+                    </p>
+
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Analytical B.Tech IT student (Graduating 2027) skilled in SQL querying, Python data handling, and building business visualizations with Power BI, Tableau, and Excel. Passionate about transforming raw transactional metadata into strategic business insights.
+                    </p>
+
+                    <!-- CTAs & Social Links -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#projects" class="px-6 py-3 rounded-xl bg-tealAccent hover:bg-accentHover text-white font-semibold text-sm transition-all shadow-lg hover:shadow-tealAccent/20 flex items-center space-x-2">
+                            <span>Explore Projects</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3 rounded-xl bg-cardBg border border-cardBorder hover:border-tealAccent text-white font-semibold text-sm transition-all flex items-center space-x-2">
+                            <i class="far fa-envelope"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Info Badges -->
+                    <div class="pt-6 border-t border-cardBorder grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-400">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-location-dot text-tealAccent"></i>
+                            <span>Greater Noida, India</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-graduation-cap text-emeraldAccent"></i>
+                            <span>B.Tech IT (2023–2027)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-database text-tealAccent"></i>
+                            <span>SQL & Python Focused</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Card Graphic Column -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md bg-cardBg border border-cardBorder rounded-2xl p-6 glow-effect relative">
+                        <div class="flex items-center justify-between pb-4 mb-6 border-b border-cardBorder">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs font-mono text-gray-400">analytics_dashboard.py</span>
+                        </div>
+
+                        <!-- Code Preview Graphic -->
+                        <div class="space-y-3 font-mono text-xs sm:text-sm">
+                            <p class="text-purple-400"><span class="text-red-400">import</span> pandas <span class="text-red-400">as</span> pd</p>
+                            <p class="text-purple-400"><span class="text-red-400">import</span> matplotlib.pyplot <span class="text-red-400">as</span> plt</p>
+                            <p class="text-gray-500"># Load and clean transaction dataset</p>
+                            <p class="text-white">df = pd.read_csv(<span class="text-emeraldAccent">'sales_data.csv'</span>)</p>
+                            <p class="text-white">clean_df = df.dropna().groupby(<span class="text-emeraldAccent">'category'</span>).sum()</p>
+                            <p class="text-gray-500"># Plot trend analysis</p>
+                            <p class="text-tealAccent">clean_df.plot(kind=<span class="text-emeraldAccent">'bar'</span>, color=<span class="text-emeraldAccent">'#58a6ff'</span>)</p>
+                            <p class="text-emeraldAccent"><span class="text-purple-400">print</span>(<span class="text-white">"Insight: Revenue spiked +34% in Q3"</span>)</p>
+                        </div>
+
+                        <!-- Quick Stat Box -->
+                        <div class="mt-6 p-4 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-400">Core Focus</p>
+                                <p class="text-sm font-bold text-white">Business Intelligence</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-tealAccent/10 text-tealAccent text-xs font-semibold">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder bg-cardBg/30">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Technical <span class="gradient-text">Skills</span></h2>
+                    <p class="text-gray-400">A comprehensive overview of my technical stack, data visualization tools, and analytical methodologies.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1: Data Analysis & EDA -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Data Analysis & EDA</h3>
+                        <p class="text-sm text-gray-400 mb-4">Cleaning, analyzing, and deriving actionable trends from raw datasets.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Data Cleaning</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">EDA</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Trend Analysis</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Data Interpretation</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: SQL & Databases -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">SQL & Databases</h3>
+                        <p class="text-sm text-gray-400 mb-4">Executing complex queries, relational modeling, and data structuring.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">MySQL</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">PostgreSQL</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">JOINS</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">GROUP BY</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Subqueries</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Python Analytics -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Python Analytics</h3>
+                        <p class="text-sm text-gray-400 mb-4">Programmatic data wrangling, mathematical processing, and plotting.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Pandas</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">NumPy</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Matplotlib</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Spreadsheet & BI Tools -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Spreadsheet & BI Tools</h3>
+                        <p class="text-sm text-gray-400 mb-4">Building interactive business dashboards and financial spreadsheets.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Power BI</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Tableau</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">MS Excel</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">PivotTables</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">VLOOKUP / XLOOKUP</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Developer Tools & Core -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-tealAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Developer Tools & Academic Core</h3>
+                        <p class="text-sm text-gray-400 mb-4">Version control environments and foundational IT knowledge.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Jupyter Notebook</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Git / GitHub</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">DBMS</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">OOP</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">DSA</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Hardware & IoT -->
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-emeraldAccent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">IoT & Systems</h3>
+                        <p class="text-sm text-gray-400 mb-4">Hardware integration, microcontrollers, and real-time signal validation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Microcontrollers</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Sensors</span>
+                            <span class="px-3 py-1 rounded-lg bg-darkBg border border-cardBorder text-xs text-gray-300">Hardware Logic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACADEMIC PROJECTS SECTION -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-4 max-w-2xl">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Academic <span class="gradient-text">Projects</span></h2>
+                        <p class="text-gray-400">Practical applications of data cleaning, statistical modeling, media content analysis, and IoT prototyping.</p>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-2" id="projectFilters">
+                        <button class="filter-btn active px-4 py-2 rounded-xl bg-tealAccent text-white text-xs font-semibold transition-all" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-cardBg border border-cardBorder text-gray-300 hover:text-white text-xs font-semibold transition-all" data-filter="data">Data Analytics</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-cardBg border border-cardBorder text-gray-300 hover:text-white text-xs font-semibold transition-all" data-filter="iot">IoT / Hardware</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-tealAccent/50 transition-all flex flex-col" data-category="data">
+                        <div class="p-6 flex-1 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full bg-tealAccent/10 text-tealAccent text-xs font-semibold">Data Analytics</span>
+                                <i class="fas fa-shopping-cart text-gray-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug">E-Commerce Customer Insights & Purchasing Analysis</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Analyzed customer purchasing patterns and product category performance to uncover key sales trends and revenue drivers. Addressed missing values in raw transaction data and created visual summary reports for peak buying periods.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Python</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Pandas</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">NumPy</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">MS Excel</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Matplotlib</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Academic Project</span>
+                            <a href="https://github.com" target="_blank" class="text-xs text-tealAccent hover:underline flex items-center space-x-1 font-medium">
+                                <span>View Repository</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-tealAccent/50 transition-all flex flex-col" data-category="data">
+                        <div class="p-6 flex-1 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full bg-tealAccent/10 text-tealAccent text-xs font-semibold">Data Analytics</span>
+                                <i class="fas fa-film text-gray-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug">Netflix Content Strategy & Trend Analysis</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Explored content distribution across genres, rating categories, and release dates to evaluate catalog expansion strategies. Cleaned regional metadata using Pandas and generated visualizations charting content production growth over time.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Python</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Pandas</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Matplotlib</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Jupyter Notebook</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Academic Project</span>
+                            <a href="https://github.com" target="_blank" class="text-xs text-tealAccent hover:underline flex items-center space-x-1 font-medium">
+                                <span>View Repository</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-emeraldAccent/50 transition-all flex flex-col" data-category="iot">
+                        <div class="p-6 flex-1 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full bg-emeraldAccent/10 text-emeraldAccent text-xs font-semibold">IoT Prototype</span>
+                                <i class="fas fa-lock text-gray-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug">Smart Door Lock System</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Engineered a sensor-driven access-control system prototype to demonstrate automated security validation. Integrated hardware components with logic controllers for reliable real-time signal processing.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Sensors</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Microcontrollers</span>
+                                <span class="text-xs text-gray-300 bg-darkBg px-2.5 py-1 rounded border border-cardBorder">Hardware Logic</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-cardBorder/50 mt-auto flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Hardware Prototype</span>
+                            <a href="https://github.com" target="_blank" class="text-xs text-emeraldAccent hover:underline flex items-center space-x-1 font-medium">
+                                <span>View Details</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION & ACHIEVEMENTS SECTION -->
+        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder bg-cardBg/30">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+                <!-- Section Header -->
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Education & <span class="gradient-text">Achievements</span></h2>
+                    <p class="text-gray-400">Academic background, competitive hackathon ranks, and industry certifications.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Education Timeline Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-2xl font-bold text-white flex items-center space-x-3">
+                            <i class="fas fa-graduation-cap text-tealAccent"></i>
+                            <span>Academic Qualifications</span>
+                        </h3>
+
+                        <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-cardBorder">
+                            
+                            <!-- B.Tech Card -->
+                            <div class="relative pl-10">
+                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-tealAccent -translate-x-1/2"></div>
+                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
+                                    <span class="text-xs text-tealAccent font-semibold">2023 – 2027</span>
+                                    <h4 class="text-lg font-bold text-white">B.Tech in Information Technology</h4>
+                                    <p class="text-sm text-gray-300">IIMT College of Engineering, Greater Noida</p>
+                                    <p class="text-xs text-gray-400 pt-2">Coursework: Database Management Systems (DBMS), OOP, Data Structures & Algorithms, Data Analytics.</p>
+                                </div>
+                            </div>
+
+                            <!-- Class XII Card -->
+                            <div class="relative pl-10">
+                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 -translate-x-1/2"></div>
+                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
+                                    <span class="text-xs text-gray-400 font-semibold">2021 – 2023</span>
+                                    <h4 class="text-lg font-bold text-white">Intermediate (Class XII)</h4>
+                                    <p class="text-sm text-gray-300">Nehru College</p>
+                                </div>
+                            </div>
+
+                            <!-- Class X Card -->
+                            <div class="relative pl-10">
+                                <div class="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 -translate-x-1/2"></div>
+                                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-2">
+                                    <span class="text-xs text-gray-400 font-semibold">2020 – 2021</span>
+                                    <h4 class="text-lg font-bold text-white">Matriculation (Class X)</h4>
+                                    <p class="text-sm text-gray-300">Sun Beam Public School (CBSE)</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Achievements & Certifications Column -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <h3 class="text-2xl font-bold text-white flex items-center space-x-3">
+                            <i class="fas fa-award text-emeraldAccent"></i>
+                            <span>Certifications & Ranks</span>
+                        </h3>
+
+                        <div class="space-y-4">
+                            <!-- Achievement 1 -->
+                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-trophy text-lg"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h4 class="text-base font-bold text-white">2nd Rank Holder - College Ideathon</h4>
+                                    <p class="text-xs text-gray-400">Secured second place in a competitive innovation event for presenting a structured technology solution.</p>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 2 -->
+                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center shrink-0">
+                                    <i class="fas fa-certificate text-lg"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h4 class="text-base font-bold text-white">Data Analytics Professional Certificate</h4>
+                                    <p class="text-xs text-gray-400">Coursera coursework focused on data handling, EDA, and statistical visualization techniques.</p>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 3 -->
+                            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center shrink-0">
+                                    <i class="fas fa-microchip text-lg"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h4 class="text-base font-bold text-white">IoT Project Development Certificate</h4>
+                                    <p class="text-xs text-gray-400">Formal certification for hardware prototyping and controller integration implementation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & FOOTER SECTION -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-cardBorder">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="text-gray-400">Feel free to reach out for internship opportunities, entry-level roles, or data analytics collaborations.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Details Column -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-cardBg border border-cardBorder rounded-2xl p-8 space-y-6">
+                            <h3 class="text-xl font-bold text-white">Contact Information</h3>
+
+                            <div class="space-y-4">
+                                <a href="mailto:itsnitu965@gmail.com" class="flex items-center space-x-4 text-gray-300 hover:text-tealAccent transition-colors">
+                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-tealAccent">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Email</p>
+                                        <p class="text-sm font-semibold">itsnitu965@gmail.com</p>
+                                    </div>
+                                </a>
+
+                                <a href="tel:+919771508021" class="flex items-center space-x-4 text-gray-300 hover:text-tealAccent transition-colors">
+                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-emeraldAccent">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Phone</p>
+                                        <p class="text-sm font-semibold">+91 9771508021</p>
+                                    </div>
+                                </a>
+
+                                <div class="flex items-center space-x-4 text-gray-300">
+                                    <div class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-tealAccent">
+                                        <i class="fas fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Location</p>
+                                        <p class="text-sm font-semibold">Greater Noida, Uttar Pradesh, India</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 border-t border-cardBorder space-y-3">
+                                <p class="text-xs text-gray-400">Social Profiles</p>
+                                <div class="flex space-x-3">
+                                    <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-gray-300 hover:text-white hover:border-tealAccent transition-all">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkBg border border-cardBorder flex items-center justify-center text-gray-300 hover:text-white hover:border-tealAccent transition-all">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form Column -->
+                    <div class="lg:col-span-7">
+                        <form id="contactForm" class="bg-cardBg border border-cardBorder rounded-2xl p-8 space-y-6">
+                            <h3 class="text-xl font-bold text-white">Send a Message</h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs text-gray-400 font-medium">Your Name</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs text-gray-400 font-medium">Your Email</label>
+                                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-gray-400 font-medium">Subject</label>
+                                <input type="text" required placeholder="Opportunity / Project Query" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-gray-400 font-medium">Message</label>
+                                <textarea rows="4" required placeholder="Hi Nitu, I would like to discuss..." class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white placeholder-gray-600 focus:outline-none focus:border-tealAccent text-sm resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-tealAccent hover:bg-accentHover text-white font-semibold text-sm transition-all shadow-lg hover:shadow-tealAccent/20">
+                                Send Message
+                            </button>
+
+                            <!-- Success / Error Message Box -->
+                            <div id="formResponse" class="hidden p-4 rounded-xl text-center text-xs font-semibold"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-cardBorder text-center text-xs text-gray-500">
+        <p>&copy; 2026 Nitu Pandey. All rights reserved. Designed for GitHub Pages & Vercel deployment.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Mobile Drawer Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer when link is clicked
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Category Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-tealAccent', 'text-white');
+                    b.classList.add('bg-cardBg', 'text-gray-300');
+                });
+                btn.classList.add('active', 'bg-tealAccent', 'text-white');
+                btn.classList.remove('bg-cardBg', 'text-gray-300');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form Submit Handler
+        const contactForm = document.getElementById('contactForm');
+        const formResponse = document.getElementById('formResponse');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formResponse.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'bg-emeraldAccent/10', 'text-emeraldAccent');
+            
+            // Display mock success response without alert()
+            formResponse.classList.add('bg-emeraldAccent/10', 'text-emeraldAccent');
+            formResponse.textContent = "Thank you! Your message has been sent successfully.";
+            contactForm.reset();
+
+            setTimeout(() => {
+                formResponse.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
